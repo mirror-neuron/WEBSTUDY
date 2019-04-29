@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+C:\WEBSTUDY\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1557356848.index
+\WebApp01\src

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test014.html</title>
+
+<script type="text/javascript">
+
+	// msg 변수 → 함수 밖에 선언 → 모든 함수에서 접근 간으한 전역 변수
+	msg = "2019년 5월의 둘째 날";
+	//-- var 키워드 사용 여부와 관계없이 전역변수의 형태로 기능하는 상황
+	
+	function button_onclick1()
+	{
+		//alert("첫 번째 버튼 클릭");
+		
+		// var 키워드 포함 → name 변수 → 함수 내부에 선언 → 지역 변수
+		// var name="홍길동";
+		
+		// var 키워드 생략 → name 변수 → 함수 내부에 선언 → 상황에 따른 지역/전역 변수
+		name = "고길동";
+		
+		document.write("이름 : "+name);
+		alert(msg);
+	}
+	
+	function button_onclick2()
+	{
+		//alert("두 번째 버튼 클릭");
+		
+		document.write("이름 : "+name);
+		alert(msg);
+	}
+	
+</script>
+
+<noscript>
+	자바스크립트가 사용되지 못할 경우 표현되는 영역
+</noscript>
+
+
+
+</head>
+<body>
+
+<input type="button" id="button" value="Button" onclick="button_onclick1()"><br>
+<input type="button" id="button2" value="Button" onclick="button_onclick2()">
+
+</body>
+</html>

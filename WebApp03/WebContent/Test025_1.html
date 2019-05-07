@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test025.html</title>
+<style type="text/css">
+	* {font-family: 맑은 고딕; font-weight: bold;}
+	td {text-align: right;}
+</style>
+
+<script type="text/javascript">
+
+	function myCalendar()
+	{
+		//alert("함수 호출 확인");
+		
+		var year=Number(document.getElementById("txtYear").value);
+		var month=Number(documnet.getElementById("txtMonth").value);
+		var days[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		
+		if ( ( (year%4==0) && (y%100!=0) )|| (y%400==0) )
+		{
+			days[1] = 29;
+		}
+		
+		var nalsu = (year-1)*365 + (year-1)/4 - (year-1)/100 + (year-1)/400;
+		
+		for(var i=0; i<(month-1); i++)
+			nalsu += days[i];
+		
+		nalsu += 1;
+
+		var week=nalsu%7;
+		
+		for (var i=0; i<=week; i++)
+			System.out.print("    ");
+		
+		for (var i=0; i<=days[month-1]; i++)
+		{
+			System.out.printf("%4d", i);
+			week++;
+			
+			if (week%7==0)
+			{
+				System.out.println();
+			} 
+		}
+		
+		if (week%7!=0)
+		{
+			System.out.println();
+		}
+	
+		for (var i = 0; i < 5; i++)
+        {
+           var trNode = document.createElement("tr");
+           
+           for (var j = 0; j < 7; j++)
+           {
+              trNode.appendChild(createTdNode(day));
+              day++
+           }
+           
+           tableNode.appendChild(trNode);
+
+        }
+		
+	}
+	
+
+</script>
+
+</head>
+<body>
+
+<div>
+	<h1>테이블 동적 생성으로 만년달력 그리기</h1>
+	<hr>
+</div>
+
+<div>
+	<form>
+		<input type="text" id="txtYear" class="txt" style="width: 67px;"> 년
+		<input type="text" id="txtMonth" class="txt" style="width: 67px;"> 월
+		<br><br>
+		<button type="button" class="btn" style="width: 200px;" onclick="myCalendar()">만년 달력 그리기</button>
+		<br><br>
+		
+		<table border="1" id="calendarTbl">
+			<tr>
+				<th>일</th>
+				<th>월</th>
+				<th>화</th>
+				<th>수</th>
+				<th>목</th>
+				<th>금</th>
+				<th>토</th>
+			</tr>
+	</form>
+</div>
+
+</body>
+</html>

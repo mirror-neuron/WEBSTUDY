@@ -36,7 +36,6 @@ INDEX VERSION 1.131+C:\WEBSTUDY\.metadata\.plugins\org.eclipse.jdt.core
 3431489974.index
 402782763.index
 989081966.index
-788666461.index
 3705452257.index
 1149482419.index
 1710956284.index

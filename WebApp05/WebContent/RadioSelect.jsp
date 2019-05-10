@@ -17,13 +17,13 @@
 <div>
 	<h2>radio, select 데이터 전송</h2>
 	
-	<form action="RadioSelct_ok.jsp" method="post">
+	<form action="RadioSelect_ok.jsp" method="post">
 		이름 <input type="text" name="name" class="txt">
 		<br>
 		
 		성별
-		<label><input type="radio" value="M" name="genderGroup">남자</label>
-		<label><input type="radio" value="W" name="genderGroup">여자</label>
+		<label><input type="radio" name="gender" value="M" >남자</label>
+		<label><input type="radio" name="gender" value="W" >여자</label>
 		<br><br>
 		
 		전공
@@ -38,7 +38,7 @@
 		<br><br>
 		
 		취미
-		<select size="6" name="hobby" multiple="multiple">
+		<select name="hobby" size="6" multiple="multiple">
 			<option value="영화감상">영화감상</option>
 			<option value="음악감상">음악감상</option>
 			<option value="배드민턴">배드민턴</option>

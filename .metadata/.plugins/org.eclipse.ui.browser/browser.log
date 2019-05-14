@@ -95,3 +95,10 @@
 5월 10, 2019 15:52:12.40 [972:3872:0510/155212.401:ERROR:browser_process_sub_thread.cc(217)] Waited 25 ms for network service
 5월 10, 2019 17:45:46.83 [8592:1764:0510/174546.833:ERROR:CONSOLE(0)] "Access to XMLHttpRequest at 'https://play.google.com/log?format=json&hasfast=true&authuser=0' from origin 'chrome-search://local-ntp' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://play.google.com' that is not equal to the supplied origin.", source: chrome-search://local-ntp/local-ntp.html (0)
 5월 10, 2019 17:48:37.03 [8592:5308:0510/174837.037:ERROR:browser_process_sub_thread.cc(217)] Waited 135 ms for network service
+
+5월 14, 2019 15:51:59.24 NEW SESSION
+5월 14, 2019 15:51:59.24 [7944:2388:0514/155159.244:ERROR:browser_process_sub_thread.cc(217)] Waited 121 ms for network service
+5월 14, 2019 17:02:47.16 [4952:9468:0514/170247.162:ERROR:browser_process_sub_thread.cc(217)] Waited 36 ms for network service
+
+5월 14, 2019 17:56:00.25 NEW SESSION
+5월 14, 2019 17:56:00.25 [10768:4092:0514/175600.254:ERROR:browser_process_sub_thread.cc(217)] Waited 21 ms for network service

@@ -64,7 +64,6 @@
 	{
 		var uName = document.getElementById("userName");
 		var nMsg = document.getElementById("nameMsg");
-		var uTel = document.getElementById("userTel");
 		
 		nMsg.style.display = "none";
 		
@@ -74,6 +73,7 @@
 			uName.focus();
 			return false;
 		}
+		
 		return true;
 	}
 	

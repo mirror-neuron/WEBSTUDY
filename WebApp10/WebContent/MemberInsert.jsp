@@ -4,37 +4,39 @@
 <%
 	// MemberInsert,jsp
 	//-- 데이터 입력 처리 페이지
-	MemberDTO dto = new MemberDTO();
-	MemberDAO dao = new MemberDAO();
 	request.setCharacterEncoding("UTF-8");
+	
 	String userName = request.getParameter("userName");
 	String userTel = request.getParameter("userTel");
 	
-	dto.setName(userName);
-	dto.setTel(userTel);
+	MemberDAO dao = null;
 	
-	dao.add(dto);
+	try
+	{
+		dao = new MemberDAO();
+		
+		// MemberDTO 구성
+		MemberDTO member = new MemberDTO();
+		member.setName(userName);
+		member.setTel(userTel);
+		
+		// dao 의 add() 메소드 호출 → insert 쿼리문 수행
+		dao.add(member);
+	}
+	catch(Exception e)
+	{
+		System.out.println(e.toString());
+	}
+		try
+		{
+			dao.close();
+		}	
+		catch (Exception e)
+		{
+			System.out.println(e.toString());
+		}
+
 	
+	// URL 주소가 기록되어 있는 쪽지를 사용자에게 전달
 	response.sendRedirect("MemberList.jsp");
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>MemberInsert.jsp</title>
-<link rel="stylesheet" type="text/css" href="css/main.css">
-</head>
-<body>
-
-<div>
-	<h1>큰주제</h1>
-	<hr>
-</div>
-
-<div>
-	<p>작은주제</p>
-	<form></form>
-</div>
-
-</body>
-</html>

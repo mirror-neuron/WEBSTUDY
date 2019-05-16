@@ -27,7 +27,17 @@
 			str.append("<a href='MemberUpdateForm.jsp?sid=" + member.getSid() + "'>");
 			str.append("<button type='button' class='btn01'>수정</button>");
 			str.append("</a>");
-			str.append("<button type='button' class='btn01'>삭제</button>");
+			// memberDelete(1, '김선아');
+	         
+	         // ※ 따옴표의 종류 : ①""  ②''  ③\"\"
+	         //    일반적으로 따옴표가 두 번 중첩되어 사용하게 되면
+	         //    ① 과 ② 를 사용하면 된다.
+	         //    하지만, 따옴표가 세 번 중첩되어 사용될 경우
+	         //    ③ Escape 를 사용해야 한다.
+	         str.append("<a href='javascript: memberDelete(" + member.getSid() + ", \"" + member.getName() +"\")'>");
+	         str.append("<button type='button' class='btn01'>삭제</button>");
+	         str.append("</a>");
+			
 			str.append("</td>");
 			str.append("</tr>");
 		}
@@ -45,6 +55,20 @@
 <meta charset="UTF-8">
 <title>MemberSelect.jsp</title>
 <link rel="stylesheet" type="text/css" href="css/MemberScore.css">
+<script type="text/javascript">
+
+   function memberDelete(sid, name)
+   {
+      var res = confirm("번호 : " + sid + ", 이름 : " + name + "\n이 회원의 정보를 삭제하시겠습니까?");
+      
+      //alert(res);
+      //-- confirm 창은 true(확인) 또는 flase(취소)를 반환
+      
+      if (res)
+	   	  window.location.href="MemberDelete.jsp?sid=" + sid;	  
+   }
+
+</script>
 </head>
 <body>
 

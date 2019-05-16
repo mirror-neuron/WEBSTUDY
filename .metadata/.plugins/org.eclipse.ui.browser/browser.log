@@ -111,3 +111,24 @@
 5월 15, 2019 14:06:40.79 [8600:9752:0515/140640.795:ERROR:audio_manager_base.cc(363)] Invalid audio output parameters received; using fake audio path: format: 0, channel_layout: 0, channels: 0, sample_rate: 0, frames_per_buffer: 0, effects: 0, mic_positions: 
 5월 15, 2019 14:06:47.45 [8600:9752:0515/140647.449:ERROR:audio_manager_base.cc(363)] Invalid audio output parameters received; using fake audio path: format: 0, channel_layout: 0, channels: 0, sample_rate: 0, frames_per_buffer: 0, effects: 0, mic_positions: 
 5월 15, 2019 17:21:30.60 [8600:7548:0515/172130.605:ERROR:browser_process_sub_thread.cc(217)] Waited 131 ms for network service
+5월 15, 2019 17:48:12.77 [12248:11516:0515/174812.774:ERROR:CONSOLE(0)] "Access to XMLHttpRequest at 'https://play.google.com/log?format=json&hasfast=true&authuser=0' from origin 'chrome-search://local-ntp' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://play.google.com' that is not equal to the supplied origin.", source: chrome-search://local-ntp/local-ntp.html (0)
+5월 15, 2019 17:48:22.90 [12248:252:0515/174822.900:ERROR:browser_process_sub_thread.cc(217)] Waited 195 ms for network service
+
+5월 16, 2019 10:24:57.49 NEW SESSION
+5월 16, 2019 10:24:57.49 [9064:8408:0516/102457.388:ERROR:browser_process_sub_thread.cc(217)] Waited 12 ms for network service
+5월 16, 2019 11:13:53.25 [5184:2212:0516/111353.257:ERROR:browser_process_sub_thread.cc(217)] Waited 131 ms for network service
+5월 16, 2019 11:18:47.83 [11232:10420:0516/111847.838:ERROR:browser_process_sub_thread.cc(217)] Waited 119 ms for network service
+5월 16, 2019 11:39:54.99 [5328:9512:0516/113954.990:ERROR:browser_process_sub_thread.cc(217)] Waited 44 ms for network service
+
+5월 16, 2019 12:01:46.61 NEW SESSION
+5월 16, 2019 12:01:46.61 [3648:1328:0516/120146.618:ERROR:browser_process_sub_thread.cc(217)] Waited 207 ms for network service
+5월 16, 2019 12:09:49.00 [5224:5348:0516/120949.002:ERROR:platform_sensor_reader_win.cc(244)] NOT IMPLEMENTED
+5월 16, 2019 12:14:18.43 [5224:5348:0516/121418.439:ERROR:platform_sensor_reader_win.cc(244)] NOT IMPLEMENTED
+5월 16, 2019 15:46:24.87 [5224:5348:0516/154624.872:ERROR:platform_sensor_reader_win.cc(244)] NOT IMPLEMENTED
+5월 16, 2019 15:46:27.76 [5224:2760:0516/154627.765:ERROR:browser_process_sub_thread.cc(217)] Waited 135 ms for network service
+5월 16, 2019 16:39:55.47 [12056:9460:0516/163955.477:ERROR:browser_process_sub_thread.cc(217)] Waited 146 ms for network service
+5월 16, 2019 16:40:12.74 [12792:7688:0516/164012.745:ERROR:browser_process_sub_thread.cc(217)] Waited 144 ms for network service
+5월 16, 2019 18:26:08.89 [6448:5520:0516/182608.899:ERROR:browser_process_sub_thread.cc(217)] Waited 223 ms for network service
+5월 16, 2019 18:49:14.74 [12344:5248:0516/184914.747:ERROR:browser_process_sub_thread.cc(217)] Waited 113 ms for network service
+5월 16, 2019 19:07:32.90 [11792:3924:0516/190732.904:ERROR:browser_process_sub_thread.cc(217)] Waited 99 ms for network service
+5월 16, 2019 19:45:16.96 [11268:2300:0516/194516.965:ERROR:browser_process_sub_thread.cc(217)] Waited 175 ms for network service

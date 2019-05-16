@@ -12,7 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import com.util.DBConn;
 
 public class MemberScoreDAO
@@ -31,9 +30,9 @@ public class MemberScoreDAO
 	{
 		int result = 0;
 		
-		String sql = "INSERT INTO TBL_SCORE (SID, NAME, KOR, ENG, MAT) VALUES (SCORESEQ.NEXTVAL, ?, ?, ?, ?)";
+		String sql = "INSERT INTO TBL_MEMBERSCORE(SID, KOR, ENG, MAT) VALUES(?, ?, ?, ?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, score.getName());
+		pstmt.setString(1, score.getSid());
 		pstmt.setInt(2, score.getKor());
 		pstmt.setInt(3, score.getEng());
 		pstmt.setInt(4, score.getMat());
@@ -105,8 +104,8 @@ public class MemberScoreDAO
 			result.setSid(rs.getString("SID"));
 			result.setName(rs.getString("NAME"));
 			result.setKor(rs.getInt("KOR"));
-			result.setKor(rs.getInt("ENG"));
-			result.setKor(rs.getInt("MAT"));
+			result.setEng(rs.getInt("ENG"));
+			result.setMat(rs.getInt("MAT"));
 		}
 		rs.close();
 		pstmt.close();

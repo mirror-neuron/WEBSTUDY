@@ -234,7 +234,7 @@ SELECT SID, NAME, KOR, ENG, MAT FROM VIEW_MEMBERSCORE WHERE SID=1
 ;
 --==>> 1	김선아	91	81	71
 
---○ 참조데이터 레코드 수 확인
+--○ 자식테이블의 참조데이터 레코드 수 확인
 SELECT COUNT(*) AS COUNT
 FROM TBL_MEMBERSCORE
 WHERE SID=1;
@@ -245,17 +245,5 @@ SELECT COUNT(*) AS COUNT FROM TBL_MEMBERSCORE WHERE SID=1
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+commit;
 

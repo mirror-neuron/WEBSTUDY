@@ -1,14 +1,5 @@
 @charset "UTF-8";
 
-*
-{
-	font-size: 18px;
-	color: #343;
-	font-family: 맑은 고딕;
-	font-weight: bold;
-	
-}
-
 input
 {
 	border-radius: 4px;
@@ -52,15 +43,16 @@ button:hover
 .btn02
 {
 	font-size: 10pt;
-	color: gray;
+	color: grey;
 	width: 45px;
 	height: 30px;
 }
 
 .btn02:hover
 {
-	color: gray;
+	color: grey;
 }
+
 
 .errMsg
 {
@@ -84,3 +76,29 @@ button:hover
 	width: 100px;
 	text-align: right;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

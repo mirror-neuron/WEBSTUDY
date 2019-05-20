@@ -8,21 +8,28 @@
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Board"/>
+		<item key="selection" value="testSt"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="&lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;"/>
-			<item value="board"/>
-			<item value="boardARRAY"/>
-			<item value="remove"/>
-			<item value="split"/>
-			<item value="scrollamount"/>
-			<item value="th"/>
-			<item value="td"/>
+			<item value="testSt"/>
+			<item value="dept"/>
+			<item value="jobS"/>
+			<item value="jobMgr"/>
+			<item value="System"/>
+			<item value="deptno"/>
+			<item value="get"/>
+			<item value="search"/>
+			<item value="dateStr"/>
+			<item value="jobStr"/>
+			<item value="testdept"/>
+			<item value="DTO"/>
+			<item value=""/>
+			<item value="Sys"/>
+			<item value="testStr"/>
 		</list>
 		<list key="replacehistory">
 			<item value="scrolldelay"/>
@@ -31,10 +38,10 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="932"/>
-		<item key="DIALOG_Y_ORIGIN" value="277"/>
+		<item key="DIALOG_X_ORIGIN" value="1601"/>
+		<item key="DIALOG_Y_ORIGIN" value="274"/>
 		<item key="DIALOG_WIDTH" value="288"/>
-		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_HEIGHT" value="392"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">

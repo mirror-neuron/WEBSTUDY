@@ -42,3 +42,13 @@
 	response.sendRedirect("SalSelect.jsp");
 	
 %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SalUpdate.jsp</title>
+</head>
+<body>
+
+</body>
+</html>

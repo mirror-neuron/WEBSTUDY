@@ -16,7 +16,7 @@
 <div>
 	<p>사원 정보가 등록되어 있으므로 해당 부서 삭제가 불가능합니다.</p>
 	<br>
-	<a href="SalSelect.jsp">돌아가기</a>
+	<a href="DeptSelect.jsp">돌아가기</a>
 </div>
 
 </body>

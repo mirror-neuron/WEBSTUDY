@@ -12,7 +12,7 @@ public class SalDAO
 	private Connection conn;
 	
 	// 데이터베이스 연결 담당 메소드
-	public Connection connection() throws SQLException
+	public Connection connection() throws SQLException, ClassNotFoundException
 	{
 		conn = DBConn.getConnection();
 		return conn;
@@ -23,12 +23,11 @@ public class SalDAO
 	{
 		int result = 0;
 		
-		String sql = "INSERT INTO SALGRADE(GRADE, LOSAL, HISAL) VALUES(?, ?, ?)";
+		String sql = "INSERT INTO SALGRADE(GRADE, LOSAL, HISAL) VALUES(SALGRADESEQ.NEXTVAL, ?, ?)";
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, dto.getGrade());
-		pstmt.setInt(2, dto.getLosal());
-		pstmt.setInt(3, dto.getHisal());
+		pstmt.setInt(1, dto.getLosal());
+		pstmt.setInt(2, dto.getHisal());
 		
 		result = pstmt.executeUpdate();
 		
@@ -115,29 +114,6 @@ public class SalDAO
 		pstmt.close();	
 		return result;
 	}
-	
-	// 자식 테이블 참조 데이터 레코드 수 확인
-	public int refCount(String grade) throws SQLException 
-	{
-		int result = 0;
-		
-		String sql = "SELECT COUNT(*) AS COUNT FROM SALGRADE WHERE GRADE=?";
-		
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-		
-		pstmt.setString(1, grade);
-		
-		ResultSet rs = pstmt.executeQuery();
-		
-		if (rs.next())
-			result = rs.getInt("COUNT");
-		
-		rs.close();
-		pstmt.close();
-		
-		return result;
-	}
-	
 	
 	// 데이터베이스 연결 종료 담당 메소드
 	public void close() throws SQLException 

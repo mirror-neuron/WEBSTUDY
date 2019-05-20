@@ -34,7 +34,7 @@
 		
 	// 페이지 최초 요청이 아닐 경우 → 수신한 데이터로 표시할 달력의 년, 월 구성
 	if(sYear != null || sMonth != null)
-	{
+	{s
 		selectYear =  Integer.parseInt(sYear);
 		selectMonth = Integer.parseInt(sMonth);
 	}

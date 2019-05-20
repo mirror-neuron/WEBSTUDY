@@ -10,9 +10,9 @@
 	{
 		dao.connection();
 		
-		str.append("<table class='table'>");
+		str.append("<table class='table table-bordered'>");
 		str.append("<tr>");
-		str.append("<th style='width: 50px;'>부서번호</th>");
+		str.append("<th style='width: 70px;'>부서번호</th>");
 		str.append("<th style='width: 100px;'>부서이름</th>");
 		str.append("<th style='width: 150px;'>지역명</th>");
 		str.append("<th style='width: 200px;'>부서관리</th>");
@@ -21,17 +21,17 @@
 		for(DeptDTO dept : dao.lists())
 		{
 			str.append("<tr>");
-			str.append("<td>" + dept.getDeptNo() + "</td>");
+			str.append("<td >" + dept.getDeptNo() + "</td>");
 			str.append("<td>" + dept.getdName() + "</td>");
 			str.append("<td>" + dept.getLoc() + "</td>");
 			
 			str.append("<td>");
 			str.append("<a href='DeptUpdateForm.jsp?deptNo=" + dept.getDeptNo() + "'>");
-			str.append("<button type='button' class='btn01'>수정</button>");
+			str.append("<button type='button' class='btn btn-primary btn-sm active'>수정</button>");
 			str.append("</a>");
 			
 			str.append("<a href='javascript: deptDelete(" + dept.getDeptNo() + ", \"" + dept.getdName() + "\")'>");
-			str.append("<button type='button' class='btn01'>삭제</button>");
+			str.append("<button type='button' class='btn btn-default btn-sm active'>삭제</button>");
 			str.append("</a>");
 			
 			str.append("</td>");
@@ -62,7 +62,8 @@
 <head>
 <meta charset="UTF-8">
 <title>DeptSelect.jsp</title>
-<link rel="stylesheet" type="text/css" href="css/MemberScore.css">
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
 <script type="text/javascript">
 
@@ -79,17 +80,18 @@
 </head>
 <body>
 
-<div>
+<div class="container">
 	<h1>부서 관리 및 출력 페이지</h1>
 	<hr>
 </div>
 
-<div>
-	<a href="DeptInsertForm.jsp"><button type="button">신규 부서 등록</button></a>
+<div class="container">
+	<a href="DeptInsertForm.jsp"><button type="button" class="btn btn-primary btn-lg active">신규 부서 등록</button></a>
+	<a href="EmpSelect.jsp"><button type="button" class="btn btn-primary btn-lg active">처음으로</button></a>
 	<br><br>
 </div>
 
-<div>
+<div class="container">
 	<!-- 리스트 출력 -->
 	<%=str %>
 </div>

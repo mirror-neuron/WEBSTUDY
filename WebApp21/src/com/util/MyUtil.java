@@ -131,7 +131,12 @@ public class MyUtil
 		while ( (page <= total_page) && (page <= currentPageSetup + numPerBlock) )
 		{
 			if (page == current_page) //-- 현재 머물고 있는 페이지(링크 안걸고, 다른 페이지는 링크 검)
-				strList.append(" <span style='color:orangel font-weight:bold;'>" + page + "</span>");
+				
+				
+				
+				
+				
+				strList.append(" <span style='color:orange; font-weight:bold;'>" + page + "</span>");
 			else
 				strList.append(" <a href='" + list_url + "pageNum=" + page + "'>" + page + "</a>");
 			

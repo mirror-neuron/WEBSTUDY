@@ -13,6 +13,7 @@ import java.util.List;
 
 public class BoardDAO
 {
+	
 	private Connection conn;
 	
 	// 생성자 정의
@@ -75,6 +76,7 @@ public class BoardDAO
 	
 	// DB 레코드의 갯수를 가져오는 메소드 정의
 	// → 검색 기능을 작업하며 수정하게 될 메소드
+	/*
 	public int getDataCount() throws SQLException
 	{
 		int result = 0;
@@ -96,11 +98,40 @@ public class BoardDAO
 		return result;
 		
 	}//end getDataCount()
+	*/
+	public int getDataCount(String searchKey, String searchValue) throws SQLException
+	{
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+	
+		searchValue = "%" + searchValue + "%";
+		
+		String sql = "SELECT COUNT(*) AS COUNT FROM TBL_BOARD";
+		sql += " WHERE " + searchKey + " LIKE ?";
+		
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, searchValue);
+		
+		rs = pstmt.executeQuery();
+		while (rs.next())
+			result = rs.getInt("COUNT");
+		
+		rs.close();
+		pstmt.close();
+		
+		return result;
+		
+	}//end getDataCount()
+	
+	
 	
 	
 	// 특정 영역의(시작번호 ~ 끝번호) 게시물의 목록을 
 	// 읽어오는 메소드 정의
 	// → 검색 기능을 작업하며 수정하게 될 메소드
+	/*
 	public List<BoardDTO> getLists(int start, int end) throws SQLException
 	{
 		List<BoardDTO> result = new ArrayList<BoardDTO>();
@@ -110,22 +141,19 @@ public class BoardDAO
 		
 		try
 		{
-			sql = "SELECT NUM, NAME, SUBJECT, HITCOUNT, CREATED ";
-			sql += "FROM ";
-			sql += "(";
-			sql += "	SELECT ROWNUM RNUM,  DATA.*";
-			sql += "	FROM ";
-			sql += "	(SELECT NUM, NAME, SUBJECT, HITCOUNT";
-			sql += ", TO_CHAR(CREATED, 'YYYY-MM-DD')";
-			sql += " AS CREATED FROM TBL_BOARD ORDER BY NUM DESC) ";
-			sql	+= "DATA )";
-			sql += " WHERE RNUM >= ? AND RNUM <= ?";
+			sql = "SELECT NUM, NAME, SUBJECT, HITCOUNT, CREATED"
+			    + " FROM ( SELECT ROWNUM RNUM,  DATA.* "
+			    + " FROM (SELECT NUM, NAME, SUBJECT, HITCOUNT, TO_CHAR(CREATED, 'YYYY-MM-DD') "
+			    + " AS CREATED FROM TBL_BOARD ORDER BY NUM DESC) DATA) "
+			    + " WHERE RNUM >= ? AND RNUM <= ?";
 					
 			pstmt = conn.prepareStatement(sql);
+			
 			pstmt.setInt(1, start);
-			pstmt.setInt(1, end);
+			pstmt.setInt(2, end);
 			
 			rs = pstmt.executeQuery();
+			
 			while (rs.next())
 			{
 				BoardDTO dto = new BoardDTO();
@@ -148,7 +176,54 @@ public class BoardDAO
 		return result;
 		
 	}//end getLists()
+	*/
+	public List<BoardDTO> getLists(int start, int end, String searchKey, String searchValue) throws SQLException
+	{
+		List<BoardDTO> result = new ArrayList<BoardDTO>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
+		
+		try
+		{
+			searchValue = "%" + searchValue + "%";
+			
+			sql = "SELECT NUM, NAME, SUBJECT, HITCOUNT, CREATED"
+			    + " FROM ( SELECT ROWNUM RNUM,  DATA.* "
+			    + " FROM (SELECT NUM, NAME, SUBJECT, HITCOUNT, TO_CHAR(CREATED, 'YYYY-MM-DD') "
+			    + " AS CREATED FROM TBL_BOARD WHERE " + searchKey + " LIKE ? "
+			    + " ORDER BY NUM DESC) DATA) "
+			    + " WHERE RNUM >= ? AND RNUM <= ?";
+					
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, searchValue);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			
+			rs = pstmt.executeQuery();
+			
+			while (rs.next())
+			{
+				BoardDTO dto = new BoardDTO();
+				dto.setNum(rs.getInt("NUM"));
+				dto.setName(rs.getString("NAME"));
+				dto.setSubject(rs.getString("SUBJECT"));
+				dto.setHitCount(rs.getInt("HITCOUNT"));
+				dto.setCreated(rs.getString("CREATED"));
+				
+				result.add(dto);
+			}
+			rs.close();
+			pstmt.close();
+			
+		} catch (Exception e)
+		{
+			System.out.println(e.toString());
+		}
 	
+		return result;
+		
+	}//end getLists()
 	
 	// 특정 게시물 조회에 따른 조회 횟수 증가 메소드 정의
 	public int updateHitCount(int num)
@@ -187,7 +262,7 @@ public class BoardDAO
 		
 		try
 		{
-			sql = "SELECT NUM, NAME, PWD, EMAIL, SUBJECT,"
+			sql = "SELECT NUM, NAME, PWD, EMAIL, SUBJECT "
 				+ ", CONTENT, IPADDR, HITCOUNT, CREATED "
 				+ " FROM TBL_BOARD"
 				+ " WHERE NUM=?";
@@ -256,7 +331,7 @@ public class BoardDAO
 		
 		try
 		{
-			sql = "UPDATE TBL_BOARD"
+			sql = "UPDATE TBL_BOARD "
 			    + " SET NAME=?, PWD=?, EMAIL=?, SUBJECT=?, CONTENT=?"
 			    + " WHERE NUM=?";
 			pstmt = conn.prepareStatement(sql);
@@ -265,7 +340,7 @@ public class BoardDAO
 			pstmt.setString(3, dto.getEmail());
 			pstmt.setString(4, dto.getSubject());
 			pstmt.setString(5, dto.getContent());
-			pstmt.setInt(7, dto.getNum());
+			pstmt.setInt(6, dto.getNum());
 			
 			result = pstmt.executeUpdate();
 			
@@ -281,8 +356,54 @@ public class BoardDAO
 	}//end updateData()
 	
 	
+	// 이전 게시물 번호 얻어내기
+	public int getBeforeNum(int num) throws SQLException
+	{
+		int result = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
+		
+		sql = "SELECT NVL(MAX(NUM), -1) AS BEFORENUM FROM TBL_BOARD WHERE NUM<?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, num);
+		
+		rs = pstmt.executeQuery();
+		
+		while (rs.next())
+			result = rs.getInt(1);
+		
+		rs.close();
+		pstmt.close();
+		
+		return result;
+		
+	}
 	
-	
+	// 다음 게시물 번호 얻어내기
+	public int getNextNum(int num) throws SQLException
+	{
+		int result = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
+		
+		sql = "SELECT NVL(MIN(NUM), -1) AS NEXTNUM FROM TBL_BOARD WHERE NUM>?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, num);
+		
+		rs = pstmt.executeQuery();
+		
+		while (rs.next())
+			result = rs.getInt(1);
+		
+		rs.close();
+		pstmt.close();
+		
+		return result;
+
+		
+	}
 	
 	
 	

@@ -1,0 +1,14 @@
+○ 실습 문제
+
+   - Servlet 문제 → JSTL / EL 활용
+
+     ·JSTL Core 를 활용하여 다음과 같은 기능을 포함하는 페이지를 구현한다.
+     ·다섯 명의 회원 이름과 전화번호와 주소를 입력받아
+       객체를 구성하고 그렇게 구성된 객체의 속성을 반복적으로 출력하는 기능을 갖는다.
+
+   - MemberInsertForm.jsp 	→ 회원 정보 입력 페이지(5명 몽땅)
+   - MemberDTO.java		→ 사용자 정의 자료형 클래스(1명의 회원 속성)
+     com.test.core.MemberDTO
+   - MemberInsert.jsp		→ 수신된 데이터로 컬렉션 구성
+   - MemberList.jsp		→ 명단 출력 페이지
+

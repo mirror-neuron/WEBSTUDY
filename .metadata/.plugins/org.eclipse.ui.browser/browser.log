@@ -260,3 +260,7 @@
 5월 24, 2019 13:38:00.94 [8888:8472:0524/133800.945:ERROR:textfield.cc(1773)] NOT IMPLEMENTED
 5월 24, 2019 13:48:52.89 [8888:5916:0524/134852.897:ERROR:browser_process_sub_thread.cc(217)] Waited 165 ms for network service
 5월 24, 2019 14:11:24.55 [2220:9124:0524/141124.551:ERROR:browser_process_sub_thread.cc(217)] Waited 48 ms for network service
+
+5월 27, 2019 10:44:10.83 NEW SESSION
+5월 27, 2019 10:44:10.83 [6332:9232:0527/104410.726:ERROR:browser_process_sub_thread.cc(217)] Waited 8 ms for network service
+5월 27, 2019 10:47:32.88 [11504:5140:0527/104732.881:ERROR:browser_process_sub_thread.cc(217)] Waited 7 ms for network service

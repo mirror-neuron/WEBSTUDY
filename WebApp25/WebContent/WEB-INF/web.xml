@@ -17,14 +17,42 @@
 		</servlet> <servlet-mapping> <servlet-name></servlet-name> <url-pattern></url-pattern> 
 		</servlet-mapping> -->
 
-	<servlet>
+	<!-- MVCSampleBegin -->
+<!-- 	
+	<servlet> 
 		<servlet-name>MVCBegin</servlet-name>
-		<servlet-class>com.test.svt.MVCBegin</servlet-class>
-	</servlet>
+		<servlet-class>com.test.svt.MVCBegin</servlet-class> 
+	</servlet> 
+		
+	<servlet-mapping> 
+		<servlet-name>MVCBegin</servlet-name> 
+		<url-pattern>/mvcbegin</url-pattern> 
+	</servlet-mapping> 
+-->
 
-	<servlet-mapping>
-		<servlet-name>MVCBegin</servlet-name>
-		<url-pattern>/mvcbegin</url-pattern>
+
+	<!-- MVCSample01 -->
+<!-- 	
+	<servlet> 
+		<servlet-name>MVCSample01</servlet-name>
+		<servlet-class>com.test.svt.MVCSample01</servlet-class> 
+	</servlet> 
+		
+	<servlet-mapping> 
+		<servlet-name>MVCSample01</servlet-name> 
+		<url-pattern>/mvcsample01</url-pattern> 
+	</servlet-mapping> 
+-->
+	
+	<!-- MVCSample02 -->
+	<servlet> 
+		<servlet-name>MVCSample02</servlet-name>
+		<servlet-class>com.test.svt.MVCSample02</servlet-class> 
+	</servlet> 
+		
+	<servlet-mapping> 
+		<servlet-name>MVCSample02</servlet-name> 
+		<url-pattern>/mvcsample02</url-pattern> 
 	</servlet-mapping>
 
 </web-app>

@@ -1,6 +1,7 @@
 package com.test.mvc;
 
 import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,23 +13,58 @@ public class MemberInsertModel
 	{
 		String result = "";
 		
-		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		String name = request.getParameter("name");
+		String tel = request.getParameter("tel");
+		String email = request.getParameter("email");
 		
-		String userId = request.getParameter("id");
-		String userPw = request.getParameter("pw");
-		String userName = request.getParameter("name");
-		String userTel = request.getParameter("tel");
-		String userEmail = request.getParameter("email");
+		MemberDAO dao = new MemberDAO();
 		
-		request.setAttribute("id", userId);
-		request.setAttribute("pw", userPw);
-		request.setAttribute("name", userName);
-		request.setAttribute("tel", userTel);
-		request.setAttribute("email", userEmail);
-		
-		result = "WEB-INF/MemberInsert.jsp";
+		try
+		{
+			dao.connection();
+			
+			int idCheck = dao.idCheck(id);
+			int emailCheck = dao.emailCheck(email);
+			
+			if(idCheck>0)
+			{
+				request.setAttribute("idCheck", idCheck);
+				result = "WEB-INF/view/MemberInsertForm.jsp";
+			}
+			else if(emailCheck>0)
+			{
+				request.setAttribute("emailCheck", emailCheck);
+				result = "WEB-INF/view/MemberInsertForm.jsp";
+			}
+			else
+			{
+				MemberDTO dto = new MemberDTO ();
+				
+				dto.setId(id);
+				dto.setPw(pw);
+				dto.setName(name);
+				dto.setTel(tel);
+				dto.setEmail(email);
+				
+				dao.add(dto);
+				
+				result = "WEB-INF/view/MemberInsert.jsp";
+			}
+			
+		} catch (ClassNotFoundException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return result;
-	}
 
+	}
+	
 }

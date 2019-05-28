@@ -30,11 +30,13 @@ public class MemberInsertFormController extends HttpServlet
 		// 서블릿 관련 코딩
 		request.setCharacterEncoding("UTF-8");
 		
+		// Model 객체 연결 → 업무 로직 수행, View 정보 얻어내기
 		MemberInsertFormModel model = new MemberInsertFormModel();
 		String view = model.process(request, response);
-				
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/MemberInsertForm.jsp");
-		dispatcher.forward(request, response);
+		
+		// View 객체에 대한 연결
+		RequestDispatcher rd = request.getRequestDispatcher(view);
+		rd.forward(request, response);
 	}
 	
 }

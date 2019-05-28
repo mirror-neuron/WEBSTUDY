@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQTest07.html</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function()
+	{
+		/*
+		$("#all-check").change(function()
+		{
+			// 테스트
+			alert("change");
+		});	
+		*/
+		
+		$("#all-check").click(function()
+		{
+			// 테스트
+			//alert("click");
+			
+			// 테스트
+			/*all-check 의 속성값이 체크되면*/
+			//alert( $(this).attr("checked") ); //-- undefined(체크) / undefined(체크해제) 
+			
+			//alert( $(this).prop("checked"));  //-- 속성 → true / false
+			//alert( this.checked );		    //-- 속성 → true / false
+			//alert( $(this).is(":checked") );  //-- 속성 → true / false
+			
+			
+			// 방법 1. 
+			/* 바나나~수박 전체 선택 */
+			//$("div > input:checkbox").prop("checked", this.checked);
+			
+			
+			// 방법 2.
+			//『$(선택자).children()』 /* 선택한 요소의 자식들을 모두 선택하겠다 */
+			$("div").children().prop("checked", this.checked);
+			
+		});	
+		
+	});
+
+	
+</script>
+</head>
+<body>
+
+<label><input type="checkbox" id="all-check" >모두 선택</label>
+
+<div>
+	<input type="checkbox" id="check1" ><label for="check1">바나나</label><br>
+	<input type="checkbox" id="check2"><label for="check2">딸기</label><br>
+	<input type="checkbox" id="check3"><label for="check3">망고</label><br>
+	<input type="checkbox" id="check4"><label for="check4">자몽</label><br>
+	<input type="checkbox" id="check5"><label for="check5">수박</label><br>
+</div>                           
+
+
+
+</body>
+</html>
